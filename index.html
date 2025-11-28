@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paradise Kitchen | Afro-Caribbean Fusion Dining & Premium Event Catering in Accra, Ghana">
+    <title>Paradise Kitchen | Afro-Caribbean Dining & Events | Accra</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Paradise Kitchen | Afro-Caribbean Fusion & Events">
+    <meta property="og:description" content="Fine dining | Wedding packages | Funeral repasts | Birthdays | Bespoke events in Accra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://paradisekitchen.gh">
+    <meta property="og:image" content="https://i.imgur.com/3i5yI0f.jpeg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Paradise Kitchen",
+      "description": "Afro-Caribbean fusion dining and premium event catering in Accra, Ghana",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "14 Palm Avenue",
+        "addressLocality": "Cantonments",
+        "addressRegion": "Greater Accra",
+        "addressCountry": "GH"
+      },
+      "telephone": "+233-55-123-4567",
+      "openingHours": "Tu-Su 17:00-23:00",
+      "servesCuisine": ["African", "Caribbean"],
+      "priceRange": "$$",
+      "url": "https://paradisekitchen.gh"
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        :root {
+            --color-primary-dark: #1A1A1A;
+            --color-accent-gold: #D4AF37;
+            --color-text-light: #E0E0E0;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--color-primary-dark); color: var(--color-text-light); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+        .skip-link {
+            position: absolute; top: -40px; left: 6px; background: var(--color-accent-gold); color: #000;
+            padding: 10px; z-index: 1001; border-radius: 4px; font-weight: 600; transition: top 0.3s;
+        }
+        .skip-link:focus { top: 6px; }
+
+        /* Header & Navigation */
+        .sticky-header {
+            background: rgba(26,26,26,0.98); padding: 1rem 5%; position: sticky; top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(212,175,55,0.2);
+        }
+        .logo img { height: 60px; width: auto; }
+
+        .nav-desktop { display: flex; gap: 2.5rem; }
+        .nav-desktop a { color: var(--color-text-light); font-weight: 500; position: relative; transition: color 0.3s; }
+        .nav-desktop a::after {
+            content: ''; position: absolute; bottom: -8px; left: 0; width: 0; height: 2px;
+            background: var(--color-accent-gold); transition: width 0.3s;
+        }
+        .nav-desktop a:hover::after, .nav-desktop a:focus::after { width: 100%; }
+        .nav-desktop a:hover, .nav-desktop a:focus { color: var(--color-accent-gold); }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn { display: none; color: white; font-size: 1.8rem; z-index: 1001; }
+        .hamburger-line { width: 28px; height: 3px; background: white; display: block; margin: 5px auto; transition: all 0.3s; }
+        .mobile-menu-btn.active .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+        .mobile-menu-btn.active .hamburger-line:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn.active .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+        /* Mobile Menu Overlay & Panel */
+        .mobile-menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 999;
+        }
+        .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
+
+        .mobile-nav-panel {
+            position: fixed; top: 0; left: -100%; width: 280px; height: 100vh;
+            background: #111; padding: 100px 30px 40px; transition: left 0.4s cubic-bezier(0.77,0,0.18,1);
+            z-index: 1000; border-right: 4px solid var(--color-accent-gold);
+        }
+        .mobile-nav-panel.active { left: 0; }
+
+        .mobile-nav-panel a {
+            display: block; color: white; font-size: 1.3rem; font-weight: 600;
+            padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); transition: color 0.3s;
+        }
+        .mobile-nav-panel a:hover, .mobile-nav-panel a:focus { color: var(--color-accent-gold); }
+        .mobile-nav-panel .gold-btn { margin-top: 30px; display: block; text-align: center; }
+
+        /* Buttons */
+        .btn { display: inline-block; padding: 12px 32px; background: var(--color-accent-gold); color: #000;
+            border-radius: 6px; font-weight: 600; transition: all 0.3s; min-height: 48px; }
+        .gold-btn:hover { background: #f7d26b; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212,175,55,0.4); }
+
+        /* Hero */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+                        url('https://i.imgur.com/3i5yI0f.jpeg') center/cover no-repeat;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+        }
+        .hero h1 { font-family: var(--font-serif); font-size: 4rem; color: var(--color-accent-gold); margin-bottom: 1rem; }
+        .hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto 2rem; padding: 0 20px; }
+
+        section { padding: 80px 5%; text-align: center; }
+        h2 { font-family: var(--font-serif); font-size: 2.8rem; color: var(--color-accent-gold); margin-bottom: 2rem; }
+        .about-text { max-width: 800px; margin: 0 auto; font-size: 1.2rem; }
+
+        .services-grid, .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;
+        }
+        .service-card { background: #222; padding: 30px; border-radius: 10px; border: 1px solid rgba(212,175,55,0.2); transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-card h3 { color: var(--color-accent-gold); margin-bottom: 15px; }
+        .service-card .gold-btn { margin-top: 20px; }
+
+        .gallery-item { overflow: hidden; border-radius: 10px; }
+        .gallery-item img { width: 100%; height: 300px; object-fit: cover; transition: transform 0.4s; }
+        .gallery-item img:hover { transform: scale(1.05); }
+
+        .contact-info { max-width: 700px; margin: 0 auto; font-size: 1.2rem; }
+        .contact-link { color: var(--color-accent-gold); }
+        .contact-link:hover { color: #f7d26b; }
+
+        footer { background: #0d0d0d; padding: 50px 5% 20px; text-align: center; }
+        .social-icons { display: flex; justify-content: center; gap: 25px; margin-bottom: 30px; }
+        .social-icons a { color: #3D6647; font-size: 1.8rem; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.3s; }
+        .social-icons a:hover { color: var(--color-accent-gold); transform: translateY(-5px); background: rgba(212,175,55,0.1); }
+
+        /* Modal */
+        .modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); z-index: 2000;
+            display: none; align-items: center; justify-content: center; padding: 20px;
+            visibility: hidden; opacity: 0; transition: opacity 0.3s;
+        }
+        .modal.is-active { display: flex; visibility: visible; opacity: 1; }
+        .modal-content {
+            background: var(--color-primary-dark); padding: 40px; border-radius: 12px;
+            max-width: 500px; width: 100%; border: 2px solid var(--color-accent-gold);
+            position: relative;
+        }
+        .close-modal {
+            position: absolute; top: 15px; right: 20px; font-size: 2rem;
+            color: var(--color-accent-gold); line-height: 1;
+        }
+        .modal-content h3 { color: var(--color-accent-gold); margin-bottom: 20px; }
+        .form-control-group { margin-bottom: 20px; text-align: left; }
+        .form-control-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+        .form-control {
+            width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #444;
+            background: #333; color: var(--color-text-light);
+        }
+        textarea.form-control { min-height: 120px; resize: vertical; }
+
+        @media (max-width: 900px) {
+            .nav-desktop { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero h1 { font-size: 3rem; }
+            h2 { font-size: 2.4rem; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .modal-content { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header class="sticky-header">
+        <a href="#" class="logo">
+            <img src="https://i.imgur.com/5jXJ5Z9.png" alt="Paradise Kitchen Logo">
+        </a>
+
+        <nav class="nav-desktop" aria-label="Main navigation">
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav-panel">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+    <nav class="mobile-nav-panel" id="mobile-nav-panel" aria-label="Mobile navigation">
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#" data-modal-target="inquiry-modal" class="btn gold-btn">Speak to Us</a>
+    </nav>
+
+    <main id="main">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Paradise Kitchen</h1>
+                <p>Afro-Caribbean Fusion Dining & Premium Event Experiences in Accra</p>
+                <a href="#" data-modal-target="inquiry-modal" class="btn gold-btn">Speak to Us</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p class="about-text">
+                Paradise Kitchen is where the soul of West Africa meets the spirit of the Caribbean. 
+                Founded with a passion for bold flavors and heartfelt hospitality, we offer exceptional 
+                fine dining and bespoke catering for life's most important moments — weddings, funerals, 
+                birthdays, and custom celebrations.
+            </p>
+        </section>
+
+        <section id="services" style="background:#111;">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card"><h3>Wedding Packages</h3><p>Elegant Afro-Caribbean menus and seamless service for your special day.</p><a href="#" data-modal-target="inquiry-modal" class="btn gold-btn">Book Wedding</a></div>
+                <div class="service-card"><h3>Funeral Repasts</h3><p>Dignified, comforting meals to honor your loved one.</p><a href="#" data-modal-target="inquiry-modal" class="btn gold-btn">Book Repast</a></div>
+                <div class="service-card"><h3>Birthday Celebrations</h3><p>From intimate dinners to grand parties — unforgettable every time.</p><a href="#" data-modal-target="inquiry-modal" class="btn gold-btn">Book Birthday</a></div>
+                <div class="service-card"><h3>Bespoke Packages</h3><p>Corporate events, naming ceremonies — tell us your vision.</p><a href="#" data-modal-target="inquiry-modal" class="btn gold-btn">Speak to Us</a></div>
+            </div>
+        </section>
+
+        <!-- FULL 8-DISH GALLERY (FIXED & RESTORED) -->
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://i.imgur.com/3i5yI0f.jpeg" alt="Okra stew with banku, smoked fish and avocado" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://i.imgur.com/2kFz8iP.jpeg" alt="Rich okra soup with fufu and assorted meats" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://i.imgur.com/9qL3KjS.jpeg" alt="Groundnut soup with fufu and chicken" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://i.imgur.com/Y7pXbL0.jpeg" alt="Authentic Ghanaian jollof rice" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://i.imgur.com/waakye-example.jpeg" alt="Waakye with fish stew, gari and spaghetti" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://afktravel.com/wp-content/uploads/2013/12/Red-Red.jpg" alt="Red Red bean stew with ripe plantain and fish" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://images.squarespace-cdn.com/content/v1/65cfd1369377d32bcd0051fa/72636f9f-8518-4024-b3ce-166ae7f9d835/Kenkey+with+Pepper-+Sheeda+Travel+Tribe.jpg" alt="Ga kenkey with fried fish and pepper sauce" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://i.imgur.com/tilapia-example.jpeg" alt="Charcoal-grilled tilapia with banku and pepper" loading="lazy"></div>
+            </div>
+        </section>
+
+        <section id="contact" style="background:#111;">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <p><strong>Address:</strong> 14 Palm Avenue, Cantonments, Accra</p>
+                <p><strong>Phone:</strong> <a href="tel:+233551234567" class="contact-link">+233 55 123 4567</a></p>
+                <p><strong>WhatsApp:</strong> <a href="https://wa.me/233551234567" class="contact-link">Chat with us</a></p>
+                <p><strong>Email:</strong> <a href="mailto:info@paradisekitchen.gh" class="contact-link">info@paradisekitchen.gh</a></p>
+                <p><strong>Opening Hours:</strong> Tuesday – Sunday, 5:00 PM – 11:00 PM</p>
+                <br>
+                <a href="#" data-modal-target="inquiry-modal" class="btn gold-btn">Send Us a Message</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Inquiry Modal -->
+    <div id="inquiry-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1" hidden>
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close inquiry form">×</button>
+            <h3 id="modal-title">Let's Create Something Beautiful</h3>
+            <form id="inquiry-form">
+                <div class="form-control-group">
+                    <label for="modal-name">Your Name *</label>
+                    <input type="text" id="modal-name" class="form-control" required>
+                </div>
+                <div class="form-control-group">
+                    <label for="modal-email">Your Email *</label>
+                    <input type="email" id="modal-email" class="form-control" required>
+                </div>
+                <div class="form-control-group">
+                    <label for="modal-phone">Phone / WhatsApp *</label>
+                    <input type="tel" id="modal-phone" class="form-control" required>
+                </div>
+                <div class="form-control-group">
+                    <label for="modal-interest">I'm interested in...</label>
+                    <select id="modal-interest" class="form-control" required>
+                        <option value="">Please select</option>
+                        <option>Wedding Package</option>
+                        <option>Funeral Repast</option>
+                        <option>Birthday Celebration</option>
+                        <option>Bespoke Event</option>
+                        <option>General Inquiry</option>
+                    </select>
+                </div>
+                <div class="form-control-group">
+                    <label for="modal-message">Tell us about your event</label>
+                    <textarea id="modal-message" class="form-control" placeholder="Date, number of guests, special requests..."></textarea>
+                </div>
+                <button type="submit" class="btn gold-btn">
+                    <span id="btn-text">Send Message</span>
+                    <span id="btn-loading" style="display:none;">Sending...</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://instagram.com/paradisekitchen" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/233551234567" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://facebook.com/paradisekitchen" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+        <p style="color:#888;">© <span id="year"></span> Paradise Kitchen. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const overlay = document.getElementById('mobile-overlay');
+        const panel = document.getElementById('mobile-nav-panel');
+        const mainContent = document.getElementById('main');
+
+        function toggleMobileMenu(open) {
+            menuBtn.setAttribute('aria-expanded', open);
+            menuBtn.classList.toggle('active', open);
+            overlay.classList.toggle('active', open);
+            panel.classList.toggle('active', open);
+            document.body.style.overflow = open ? 'hidden' : 'auto';
+            if (mainContent) mainContent.inert = open;
+        }
+
+        menuBtn.addEventListener('click', () => toggleMobileMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
+        overlay.addEventListener('click', () => toggleMobileMenu(false));
+        document.querySelectorAll('.mobile-nav-panel a').forEach(l => l.addEventListener('click', () => toggleMobileMenu(false)));
+
+        // Modal
+        const modal = document.getElementById('inquiry-modal');
+        const modalTogglers = document.querySelectorAll('[data-modal-target="inquiry-modal"]');
+        const closeModalBtn = document.querySelector('.close-modal');
+        let previousFocus;
+
+        function openModal() {
+            previousFocus = document.activeElement;
+            modal.classList.add('is-active');
+            modal.removeAttribute('hidden');
+            document.body.style.overflow = 'hidden';
+            if (mainContent) mainContent.inert = true;
+            menuBtn.inert = true;
+            modal.focus();
+        }
+
+        function closeModal() {
+            modal.classList.remove('is-active');
+            modal.setAttribute('hidden', '');
+            document.body.style.overflow = 'auto';
+            if (mainContent) mainContent.inert = false;
+            menuBtn.inert = false;
+            if (previousFocus) previousFocus.focus();
+        }
+
+        modalTogglers.forEach(btn => btn.addEventListener('click', e => { e.preventDefault(); openModal(); }));
+        closeModalBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+        window.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('is-active')) closeModal(); });
+
+        // Form Submission
+        document.getElementById('inquiry-form').addEventListener('submit', async e => {
+            e.preventDefault();
+            const btn = e.target.querySelector('.gold-btn');
+            document.getElementById('btn-text').style.display = 'none';
+            document.getElementById('btn-loading').style.display = 'inline-block';
+            btn.disabled = true;
+
+            await new Promise(r => setTimeout(r, 1500));
+            alert("Thank you! We'll contact you within 24 hours.");
+            closeModal();
+            e.target.reset();
+
+            document.getElementById('btn-text').style.display = 'inline';
+            document.getElementById('btn-loading').style.display = 'none';
+            btn.disabled = false;
+        });
+    </script>
+</body>
+</html>
